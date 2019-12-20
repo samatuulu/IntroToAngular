@@ -4,31 +4,25 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-test',
   template: `
   <h2>Welcome {{name}} </h2>
-  <h2 [class] = "successClass">Codevolution</h2>
-  <h2 class = "text-special" [class] = "successClass">Codevolution</h2>
-  <h2 [class.text-danger]="hasError">Codevolution</h2>
-  <h2 [ngClass]="messageClasses">Codevolution</h2>`,
-  styles: [`
-  .text-success {
-    color: green;
-  }
-  .text-danger {
-    color: red;
-  }
-  .text-special {
-    font-style: italic;
-  }
-  `]
+  <h2 [style.color]="hasError? 'red': 'green'" >Style Binding</h2>
+  <h2 [style.color]="highlighColor">Style Binding 2 </h2>
+  <h2 [style.color]="highlighColor">Style Binding 3 </h2>
+  <h2 [ngStyle]="titleStyles">Style Binding 4 </h2>
+  
+
+  
+  `,
+  styles: []
 })
 export class TestComponent implements OnInit {
   public name = 'Bektursun'
   public successClass = "text-success"
   public hasError = true;
   public isSpecial = true;
-  public messageClasses = {
-    "text-success": !this.hasError,
-    "text-danger": this.hasError,
-    "text-special": this.isSpecial
+  public highlighColor = "yellow";
+  public titleStyles = {
+    color: "blue",
+    fontStyle: "italic"
   }
 
   constructor() { }
