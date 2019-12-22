@@ -4,10 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-test',
   template: `
   <h2>Welcome {{name}} </h2>
-  <h2 [style.color]="hasError? 'red': 'green'" >Style Binding</h2>
-  <h2 [style.color]="highlighColor">Style Binding 2 </h2>
-  <h2 [style.color]="highlighColor">Style Binding 3 </h2>
-  <h2 [ngStyle]="titleStyles">Style Binding 4 </h2>
+  <button (click)="onClick($event)">Greet</button>
+  <button (click)="greeting='welcome Codevolution'">Greet</button>
+  {{ greeting }}
   
 
   
@@ -16,22 +15,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
   public name = 'Bektursun'
-  public successClass = "text-success"
-  public hasError = true;
-  public isSpecial = true;
-  public highlighColor = "yellow";
-  public titleStyles = {
-    color: "blue",
-    fontStyle: "italic"
-  }
+  public greeting = "";
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  greetUser(){
-    return "Hello " + this.name;
+  onClick(event){
+    console.log(event);
+    this.greeting = event.type;
   }
 
 }
