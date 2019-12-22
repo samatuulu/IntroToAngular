@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-test',
   template: `
   <h2>Welcome {{name}} </h2>
-  <button (click)="onClick($event)">Greet</button>
-  <button (click)="greeting='welcome Codevolution'">Greet</button>
-  {{ greeting }}
+  <input #myInput type="text">
+  <button (click)="logMessage(myInput.value)">Log</button>
+
   
 
   
@@ -15,16 +15,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
   public name = 'Bektursun'
-  public greeting = "";
-
+ 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClick(event){
-    console.log(event);
-    this.greeting = event.type;
+  logMessage(value){
+    console.log(value)
   }
 
 }
