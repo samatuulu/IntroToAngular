@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   template: `
-  <div *ngFor="let color of colors; even as e">
-    <h2>{{ e }} {{ color }} </h2>
-  </div>
+  <h2> {{ "Hello " + parentData }} </h2>
+
+  
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
-  public colors = ["red", "blue", "green", "yellow"]
- 
+  @Input() public parentData: string;
+
   constructor() { }
 
   ngOnInit() {
