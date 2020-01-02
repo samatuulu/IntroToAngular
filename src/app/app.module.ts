@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { TestServiceService } from './test-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TestServiceService } from './test-service.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [TestServiceService],  
   bootstrap: [AppComponent]

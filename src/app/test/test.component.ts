@@ -11,8 +11,8 @@ export class TestComponent implements OnInit {
 
   constructor(private _employeeService: TestServiceService) { }
 
-  ngOnInit() {
-    this.employees = this._employeeService.getEmployee();
+  ngOnInit(){
+    this._employeeService.getEmployee()
+        .subscribe(data=> this.employees = data);
   }
-
 }

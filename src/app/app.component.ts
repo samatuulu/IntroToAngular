@@ -12,7 +12,8 @@ export class AppComponent {
   constructor(private _employeeService: TestServiceService){}
 
   ngOnInit(){
-    this.employees = this._employeeService.getEmployee();
+    this._employeeService.getEmployee()
+        .subscribe(data=> this.employees = data);
   }
   
 }
