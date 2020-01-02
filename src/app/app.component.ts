@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestServiceService } from './test-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-angular';
-  public message = "";
-  public parentChild = 'Hey, this data from the parent child.'
+  public employees = [];
+
+  constructor(private _employeeService: TestServiceService){}
+
+  ngOnInit(){
+    this.employees = this._employeeService.getEmployee();
+  }
+  
 }
